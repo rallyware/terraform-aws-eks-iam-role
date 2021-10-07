@@ -1,19 +1,39 @@
 formatter: markdown
 
+content: |-    
+  ## Usage
+
+  ```hcl
+  {{ include "examples/basic/main.tf" }}
+  ```
+  {{ .Requirements }}
+
+  {{ .Providers }}
+
+  {{ .Modules }}
+
+  {{ .Resources }}
+
+  {{ .Inputs }}
+
+  {{ .Outputs }}
+
 output:
   file: README.md
   mode: replace
-  template: |-
+  content: |-    
     ## Usage
 
     ```hcl
-    module "your_aweasome_resource" {
-      source    = ""
-      namespace = "sweetops"
-      stage     = "production"
-      name      = "aweasome"
-    }
+    {{ include "examples/basic/main.tf" }}
     ```
+  template: |-
+    # terraform-aws-eks-iam-role
+
+    This `terraform-aws-eks-iam-role` project provides a simplified mechanism for provisioning
+    [AWS EKS Service Account IAM roles](https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html).
+
+    __NOTE:__ This module is a hard fork of [CloudPosse's](https://github.com/cloudposse/terraform-aws-eks-iam-role) terraform module
 
     <!-- BEGIN_TF_DOCS -->
     {{ .Content }}
