@@ -1,14 +1,3 @@
-## Usage
-
-```hcl
-module "your_aweasome_resource" {
-  source    = ""
-  namespace = "sweetops"
-  stage     = "production"
-  name      = "aweasome"
-}
-```
-
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 
@@ -16,17 +5,21 @@ No requirements.
 
 ## Providers
 
-No providers.
+| Name | Version |
+|------|---------|
+| <a name="provider_aws"></a> [aws](#provider\_aws) | n/a |
 
 ## Modules
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_aweasome_module"></a> [aweasome\_module](#module\_aweasome\_module) | ../../ | n/a |
+| <a name="module_eks_iam_role"></a> [eks\_iam\_role](#module\_eks\_iam\_role) | rallyware/eks-iam-role/aws | n/a |
 
 ## Resources
 
-No resources.
+| Name | Type |
+|------|------|
+| [aws_iam_policy_document.autoscaler](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document) | data source |
 
 ## Inputs
 
@@ -36,6 +29,3 @@ No inputs.
 
 No outputs.
 <!-- END_TF_DOCS --> 
-
-## License
-The Apache-2.0 license
