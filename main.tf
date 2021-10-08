@@ -4,8 +4,8 @@ locals {
 
   eks_cluster_oidc_issuer = replace(var.eks_cluster_oidc_issuer_url, "https://", "")
 
-  aws_account_number = coalesce(var.aws_account_number, one(data.aws_caller_identity.current[*].account_id))
-  aws_partition      = coalesce(var.aws_partition, one(data.aws_partition.current[*].partition))
+  aws_account_number = local.enabled ? coalesce(var.aws_account_number, one(data.aws_caller_identity.current[*].account_id)) : null
+  aws_partition      = local.enabled ? coalesce(var.aws_partition, one(data.aws_partition.current[*].partition)) : null
 
   # If both var.service_account_namespace and var.service_account_name are provided,
   # then the role ARM will have one of the following formats:
