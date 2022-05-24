@@ -90,6 +90,7 @@ resource "aws_iam_policy" "service_account" {
   name        = module.service_account_label.id
   description = format("Grant permissions to EKS ServiceAccount %s", local.service_account_id)
   policy      = var.aws_iam_policy_document
+  tags        = module.service_account_label.tags
 }
 
 resource "aws_iam_role_policy_attachment" "service_account" {
