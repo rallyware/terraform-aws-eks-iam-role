@@ -8,6 +8,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      
       - name: Lint PR
         uses: aslafy-z/conventional-pr-title-action@v3.0.1
         with:
