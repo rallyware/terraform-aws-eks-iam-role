@@ -36,3 +36,9 @@ variable "managed_iam_policy_enabled" {
   description = "Create a managed IAM policy that can be reused. Set to `false` to use an inline IAM policy."
   default     = true
 }
+
+variable "additional_service_accounts" {
+  type    = list(any)
+  description = "Additional service accounts to handle"
+  default = []
+}
