@@ -38,7 +38,7 @@ variable "managed_iam_policy_enabled" {
 }
 
 variable "additional_service_accounts" {
-  type    = list(any)
+  type        = list(any)
   description = "Additional service accounts to handle"
-  default = []
+  default     = []
 }

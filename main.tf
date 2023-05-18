@@ -78,7 +78,7 @@ data "aws_iam_policy_document" "service_account_assume_role" {
 
     condition {
       test     = "StringLike"
-      values   = concat([format("system:serviceaccount:%s:%s", coalesce(var.service_account_namespace, "*"), coalesce(var.service_account_name, "*"))],var.additional_service_accounts)
+      values   = concat([format("system:serviceaccount:%s:%s", coalesce(var.service_account_namespace, "*"), coalesce(var.service_account_name, "*"))], var.additional_service_accounts)
       variable = format("%s:sub", local.eks_cluster_oidc_issuer)
     }
   }
