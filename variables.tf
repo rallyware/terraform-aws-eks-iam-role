@@ -54,3 +54,9 @@ variable "path" {
   default     = null
   description = "Path to the role"
 }
+
+variable "use_name_prefix" {
+  type        = bool
+  default     = false
+  description = "Whether to use a name prefix for the IAM role"
+}

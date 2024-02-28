@@ -55,7 +55,8 @@ module "service_account_label" {
 resource "aws_iam_role" "service_account" {
   count = local.enabled ? 1 : 0
 
-  name                = module.service_account_label.id
+  name                = var.use_name_prefix ? null : module.service_account_label.id
+  name_prefix         = var.use_name_prefix ? format("%s-", module.service_account_label.id) : null
   description         = format("Role assumed by EKS ServiceAccount %s", local.service_account_id)
   assume_role_policy  = one(data.aws_iam_policy_document.service_account_assume_role[*].json)
   managed_policy_arns = var.aws_iam_policy_arns
