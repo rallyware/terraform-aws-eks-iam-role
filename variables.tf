@@ -26,6 +26,12 @@ variable "aws_iam_policy_document" {
   description = "JSON string representation of the IAM policy for this service account"
 }
 
+variable "aws_iam_policy_arns" {
+  type        = list(string)
+  default     = null
+  description = "List of exclusive IAM managed policy ARNs to attach to the IAM role"
+}
+
 variable "eks_cluster_oidc_issuer_url" {
   type        = string
   description = "OIDC issuer URL for the EKS cluster (initial \"https://\" may be omitted)"
@@ -41,4 +47,16 @@ variable "additional_service_accounts" {
   type        = list(any)
   description = "Additional service accounts to handle"
   default     = []
+}
+
+variable "path" {
+  type        = string
+  default     = null
+  description = "Path to the role"
+}
+
+variable "use_name_prefix" {
+  type        = bool
+  default     = false
+  description = "Whether to use a name prefix for the IAM role"
 }
